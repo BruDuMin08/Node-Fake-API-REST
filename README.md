@@ -37,21 +37,30 @@ A API suporta registros com o seguintes dados:
 - `status : [Integer]`
 - `date: [Date]`
 
-> Os valores das chaves 'id' e 'date' são geradas automaticamente.
+> Os valores das chaves 'id' e 'date' são geradas automaticamente na inserção (POST).
+
+> O valor da chave 'date' é gerado automaticamente na atualização (PUT).
 
 ### post()
 
 Para inserir um novo registro.
 
 #### Requisição
-
+##### URL:
 ```
 http://localhost:8888/api
-    ?name=Joca da Silva
-    &email=joca@silva.com
-    &avatar=https://s3.amazonaws.com/uifaces/faces/twitter/hebertialmeida/128.jpg
-    &status=1
 ```
+##### Body (JSON):
+```
+{
+	"name" : "Joca da Silva",
+	"email" : "joca@silva.com",
+	"avatar" : "https://s3.amazonaws.com/uifaces/faces/twitter/hebertialmeida/128.jpg",
+	"status" : 1
+}
+```
+
+> Os valores das chaves 'id' e 'date' são geradas automaticamente na inserção (POST).
 
 #### Resposta bem sucedida
 
@@ -138,14 +147,23 @@ Se encontrar o(s) registro(s):
 ### put()
 Para atualizar um registro existente.
 #### Requisição
+##### URL:
 ```
 http://localhost:8888/api
-    ?id=1
-    &name=Joca da Silva
-    &email=joca@silva.com
-    &avatar=https://s3.amazonaws.com/uifaces/faces/twitter/hebertialmeida/128.jpg
-    &status=0
 ```
+##### Body (JSON):
+```
+{
+	"id" : 1,
+	"name" : "Joca da Silva",
+	"email" : "joca@silva.com",
+	"avatar" : "https://s3.amazonaws.com/uifaces/faces/twitter/hebertialmeida/128.jpg",
+	"status" : 0
+}
+```
+
+> O valor da chave 'date' é gerado automaticamente na atualização (PUT).
+
 #### Resposta bem sucedida
 ```
 {
